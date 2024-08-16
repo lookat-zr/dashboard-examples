@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv='cache-control' content='no-cache'> 
+<meta http-equiv='expires' content='0'> 
+<meta http-equiv='pragma' content='no-cache'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font: 400 15px/1.8 "Lato", sans-serif;
+  color: #777;
+}
+
+a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5 {
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.bgimg-3 {
+  background-image: url("https://raw.githubusercontent.com/lookat-zr/dashboard-examples/main/logobg.png");
+  /* background-size:contain; */
+  min-height: 250px;
+}
+
+.whiteslide {
+  color: black;
+  opacity: 1.;
+  padding: 18px;
+  background-color: white;
+}
+
+.orangeslide {
+  color: black;
+  opacity: 1.;
+  padding: 18px;
+  background-color: #f45905;
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 40px;
+  letter-spacing: 10px;
+}
+
+h4 {
+  letter-spacing: 2px;
+  font: 15px "Lato", sans-serif;
+  color: black;
+}
+
+h3 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px "Lato", sans-serif;
+  color: #f45905;
+}
+
+h1 {
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  font: 40px "Lato", sans-serif;
+  color: #111;
+}
+
+.content {
+  padding: 0px;
+}
+
+.sticky {
+  position: fixed;
+  overflow: visible;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+  .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5 {
+    background-attachment: scroll;
+  }
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  /* overflow: hidden; */
+  z-index: 100;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  z-index: 101;
+}
+
+/* Add an active class to highlight the current page */
+.active {
+  background-color: #04AA6D;
+  color: white;
+  z-index: 102;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+/* Dropdown container - needed to position the dropdown content */
+.dropdown {
+  float: left;
+  overflow: hidden;
+  z-index: 300;
+}
+
+/* Style the dropdown button to fit inside the topnav */
+.dropdown .dropbtn {
+  font-size: 17px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 20px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  z-index: 100;
+}
+
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 111;
+}
+
+/* Style the links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  z-index: 110;
+}
+
+/* Add a dark background on topnav links and the dropdown button on hover */
+.topnav a:hover, .dropdown:hover .dropbtn {
+  background-color: #555;
+  color: white;
+  z-index: 111;
+}
+
+/* Add a grey background to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+  z-index: 111;
+  display: block;
+}
+
+/* Show the dropdown menu when the user moves the mouse over the dropdown button */
+.dropdown:hover .dropdown-content {
+  display: block;
+  z-index: 111;
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child), .dropdown .dropbtn {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnav.responsive .dropdown {float: none;}
+  .topnav.responsive .dropdown-content {position: relative;}
+  .topnav.responsive .dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    position: relative;
+    z-index: 300;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bgimg-3" style="min-height:60%">
+  <div class="caption">
+  <span class="border">Congressional Black Caucus</span>
+  </div>
+</div>
+
+<div class="topnav" id="myHeader" style="min-height: 60px">
+  <a href="#methods">Methods</a> 
+  <a href="#friends">Friendly Outlet Analysis</a>
+  <a href="#hs">Media Hate Message Analysis</a> 
+  <a href="javascript:void(0);" class="icon" onclick="navmini()">&#9776;</a>
+</div>
+
+<div class="whiteslide" id="methods">
+  <h3 style="text-align:left;color:#f45905">Report Objectives</h3>
+  <p>Included in this report is:</p>
+  <ul>
+    <li>An analysis of outlets and journalists who have recently published messages consistent with the key, positive messaging about topics that may be of interest.</li>
+    <li>An analysis of specific, strategic media frames that are correlated with increased rates of hateful content and may thus pose reputational risk.</li>
+  </ul>
+  <br><br>
+</div>
+<div class="whiteslide">
+  <h3 style="text-align:left;color:#f45905">Methods</h3>
+  <p><b>Friendly Outlet Analysis.</b> <br>We first generated twenty iterations of various positive media messages that would be amenable to your organization using a generative language model. To model amenability, we used the Congressional Black Caucus’s organizational description found on their website. We then used an in-house artificially intelligent search algorithm to find and index example texts that mirrored the sentiment in those twenty positive media messages. <em>All data included in the final report came from our media corpus and were not altered or summarized via LLM, thus posing no risk of hallucinated content.</em></p>
+  <p><b>Reputational Risk Factor: Hate Generating Environment Analysis.</b> <br>We leveraged a contemporary state of the art hate speech detection model to first identify overtly hateful messages in both news articles and quotes reported in those articles. We then used a word vector model (the guts of contemporary AI) to generate clusters of messages and identified which clusters contained more overtly hateful examples. We then manually performed a deep language analysis (see George Lakoff’s Don’t Think of an Elephant) to assess what conceptual metaphors were being used in the more hateful clusters. <em>All data included in the final report came from our media corpus and were not altered or summarized via LLM, thus posing no risk of hallucinated content.</em></p>
+</div>
+
+<div class="bgimg-3"></div>
+
+<div class="whiteslide" id="friends">
+  <h1 style="text-align:left;color:#f45905">Friendly Outlet Analysis</h1>
+  <p>We performed an artificial intelligence augmented search of contemporary news media sources in the last year to generate a list of journalists and outlets who have written messages consistent with those listed below. As part of a coordinated media pitch, we recommend reaching out to these “friendly” journalists and outlets.</p>
+  <br>
+  <h4>Journalists Amenable to the Positive Media Messages.</h4>
+  <p>We found the following outlets and journalists who would be amenable to publishing stories related to our 10 positive media messages An interactive plot is provided below to allow for you to navigate our results and explore them yourself. Messages are defined below for your reference as well, including examples that can be used to understand how similar messages are discussed in the current media environment.</p>
+  <iframe id="igraph" scrolling="yes" style="border:none;" seamless="seamless" src="FriendMap.html" height="525" width="100%"></iframe>
+  <br>
+  <h4>Message Key and Example Texts from Friendly Outlet Analysis.</h4>
+  <p>The quotes provided below are indicative of the ways that various outlets in our sample have covered similar stories related to the positive media messages we list here. The objective is to understand similarity in themes between positive media messages and existing reporting.</p>
+  <iframe id="igraph" scrolling="yes" style="border:none;min-height: 300px;" seamless="seamless" src="EDA-friend.html" height="525" width="100%"></iframe>
+  <br>
+  <br>
+  <br>
+  <h4>Top Outlets Publishing Related Stories</h4>
+  <p>The following is a visualization of the outlets publishing the most stories that are amenable to any of the positive media messages analyzed, as well as the category/topic of reporting performed. </p>
+  <iframe id="igraph" scrolling="yes" style="border:none;min-height: 300px;" seamless="seamless" src="OutletCategory.html" height="525" width="100%"></iframe>
+</div>
+
+<div class="bgimg-3"></div>
+
+<div class="whiteslide" id="hs">
+  <h1 style="text-align:left;color:#f45905">Reputational Risk Factor: Hate Generating Environment Analysis </h1>
+  <p>In our analysis of the current media environment, we identified the following framings of issues facing BIPOC communities that may be potentially problematic and/or pose reputational risk either by being overtly hateful or by being a strategic frame that is often associated with hate speech.</p>
+  <iframe id="igraph" scrolling="yes" style="border:none;" seamless="seamless" src="HS-TFIDF.html" height="525" width="100%"></iframe>
+</div>
+
+<!-- <div class="bgimg-3"></div> -->
+
+</body>
+
+<script>
+  window.onscroll = function() {myFunction()};
+  
+  var header = document.getElementById("myHeader");
+  var sticky = header.offsetTop;
+  
+  function myFunction() {
+    if (window.pageYOffset > sticky) {
+      header.classList.add("sticky");
+    } else {
+      header.classList.remove("sticky");
+    }
+  }
+</script>
+
+<script>
+    function navmini() {
+        var x = document.getElementById("myHeader");
+        if (x.className === "topnav") {
+        x.className += " responsive";
+        } else {
+        x.className = "topnav";
+        }
+    }
+</script>
+
+</html>
